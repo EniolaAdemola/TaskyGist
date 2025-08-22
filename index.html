@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="icon" href="../public/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <div id="app" class="app">
+      <header class="header">
+        <h1 class="title">TaskyGist</h1>
+        <p class="subtitle">TaskyGist - Stay organized and productive</p>
+      </header>
+
+      <section class="stats" aria-label="Task statistics">
+        <div class="stat">
+          <div id="count-all" class="stat-number">0</div>
+          <div class="stat-label">Total</div>
+        </div>
+        <div class="stat">
+          <div id="count-active" class="stat-number stat-active">0</div>
+          <div class="stat-label">Active</div>
+        </div>
+        <div class="stat">
+          <div id="count-completed" class="stat-number stat-success">0</div>
+          <div class="stat-label">Done</div>
+        </div>
+      </section>
+
+      <nav class="filters" aria-label="Task filters">
+        <button class="btn btn-outline" data-filter="all" aria-pressed="true">
+          <span class="icon" aria-hidden="true">📋</span>
+          <span>All Tasks</span>
+          <span id="badge-all" class="badge">0</span>
+        </button>
+        <button
+          class="btn btn-outline"
+          data-filter="active"
+          aria-pressed="false"
+        >
+          <span class="icon" aria-hidden="true">⭕</span>
+          <span>Active</span>
+          <span id="badge-active" class="badge">0</span>
+        </button>
+        <button
+          class="btn btn-outline"
+          data-filter="completed"
+          aria-pressed="false"
+        >
+          <span class="icon" aria-hidden="true">✅</span>
+          <span>Completed</span>
+          <span id="badge-completed" class="badge">0</span>
+        </button>
+      </nav>
+
+      <div class="add-wrapper">
+        <button id="add-task-btn" class="btn btn-primary btn-block">
+          <span class="icon" aria-hidden="true">➕</span>
+          Add New Task
+        </button>
+      </div>
+
+      <main>
+        <ul
+          id="task-list"
+          class="task-list"
+          aria-live="polite"
+          aria-label="Task list"
+        ></ul>
+
+        <div id="empty-state" class="empty" hidden>
+          <div class="empty-title">No tasks yet</div>
+          <p class="empty-text">Add your first task to get started!</p>
+        </div>
+      </main>
+
+      <footer id="footer" class="footer" hidden>
+        All data is saved locally in your browser
+      </footer>
+    </div>
+
+    <!-- Task Form Modal -->
+    <div
+      id="task-modal"
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="task-modal-title"
+      hidden
+    >
+      <div class="modal-content animate-scale-in">
+        <header class="modal-header">
+          <h2 id="task-modal-title" class="modal-title">
+            <span class="icon" aria-hidden="true">📝</span>
+            <span id="task-modal-heading">Add New Task</span>
+          </h2>
+          <p id="task-modal-desc" class="modal-desc">
+            Enter a clear description for your new task.
+          </p>
+        </header>
+        <form id="task-form" class="form" novalidate>
+          <label class="label" for="task-input">Task Description</label>
+          <input
+            id="task-input"
+            class="input"
+            type="text"
+            placeholder="e.g., Review quarterly reports..."
+            maxlength="200"
+          />
+          <div class="helper">
+            <span>3-200 characters</span>
+            <span id="char-count">0/200</span>
+          </div>
+          <div id="form-error" class="error" role="alert" hidden>
+            <span class="icon" aria-hidden="true">⚠️</span>
+            <span id="error-text"></span>
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn btn-outline" id="cancel-btn">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary" id="save-btn">
+              <span class="save-default"
+                ><span class="icon" aria-hidden="true">💾</span
+                ><span id="save-label">Add Task</span></span
+              >
+              <span class="save-loading" hidden>
+                <span class="spinner" aria-hidden="true"></span>
+                Saving...
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Confirm Delete Modal -->
+    <div
+      id="confirm-modal"
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="confirm-title"
+      hidden
+    >
+      <div class="modal-content">
+        <header class="modal-header">
+          <h2 id="confirm-title" class="modal-title">Delete Task</h2>
+          <p id="confirm-desc" class="modal-desc">
+            Are you sure you want to delete this task? This action cannot be
+            undone.
+          </p>
+        </header>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" id="confirm-cancel">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-danger" id="confirm-delete">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toasts -->
+    <div
+      id="toast-container"
+      class="toasts"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+
+    <script src="./scripts/app.js" defer></script>
+  </body>
+</html>
