@@ -1,0 +1,82 @@
+/* Layout Components */
+.app {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.header {
+  text-align: center;
+  margin: 16px 0 24px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-glow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin: 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 20px auto;
+  max-width: 720px;
+}
+
+.stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.stat-active {
+  color: var(--task-active);
+}
+
+.stat-success {
+  color: var(--success);
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 720px;
+}
+
+.add-wrapper {
+  margin: 16px auto 24px;
+  max-width: 720px;
+}
+
+.footer {
+  text-align: center;
+  margin: 28px auto 0;
+  color: var(--muted);
+  max-width: 720px;
+  font-size: 13px;
+}
