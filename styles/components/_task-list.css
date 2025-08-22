@@ -1,0 +1,123 @@
+/* Task List Components */
+.task-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 720px;
+  display: grid;
+  gap: 10px;
+}
+
+.task-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.task-item:hover {
+  border-color: rgba(124, 77, 255, 0.35);
+  box-shadow: 0 8px 24px -16px rgba(124, 77, 255, 0.45);
+  background: rgba(124, 77, 255, 0.04);
+}
+
+.checkbox {
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  border: 2px solid rgba(154, 164, 178, 0.4);
+  background: transparent;
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+
+.checkbox.completed {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.checkbox:hover {
+  transform: scale(1.08);
+  border-color: var(--primary);
+  background: rgba(124, 77, 255, 0.1);
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.text {
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.text.completed {
+  text-decoration: line-through;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.meta {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.task-item:hover .actions {
+  opacity: 1;
+}
+
+.action {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+}
+
+.action:hover {
+  background: rgba(124, 77, 255, 0.1);
+  color: var(--primary);
+}
+
+.action.danger:hover {
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--danger);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  margin: 36px 0;
+}
+
+.empty-title {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.empty-text {
+  font-size: 14px;
+}
