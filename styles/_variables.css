@@ -1,0 +1,15 @@
+/* CSS Custom Properties (Design Tokens) */
+:root {
+  --bg: #0b0c10;
+  --card: #111317;
+  --border: #1f2430;
+  --text: #e6e8f0;
+  --muted: #9aa4b2;
+  --primary: #7c4dff;
+  --primary-glow: #00d4ff;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --task-active: #38bdf8;
+  --shadow: 0 10px 25px -10px rgba(124, 77, 255, 0.35);
+}
